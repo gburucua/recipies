@@ -10,7 +10,7 @@ REPOSITORY_NAME="recipies"
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 # Build the Docker image
-docker build -f recipies/Dockerfile -t gburucua/recipies:latest .
+docker build -t gburucua/recipies:latest .
 
 # Push the Docker image to a registry (e.g., Docker Hub)
 docker push gburucua/recipies:latest
