@@ -25,10 +25,8 @@ ssh -i ~/.ssh/id_rsa ec2-user@$AWS_INSTANCE_IP "
   docker pull gburucua/recipies:latest
 
   # Run the Docker container
-  docker run -d -p 5001:5001 --name recipies gburucua/recipies:latest
-  # docker network create my_network
-  # --network recipies_default
-  # docker run -d -p 3306:3306 -v mysql_data:/var/lib/mysql --name recipies gburucua/recipies:latest --network my_network -e MYSQL_ROOT_PASSWORD=rootpassword 
+  docker network create recipies_default
+  docker run -d -p 5001:5001 --network recipies_default --name recipies gburucua/recipies:latest
 
   # Remove old Docker images to free up space
   docker image prune -af
